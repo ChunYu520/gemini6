@@ -16,7 +16,7 @@ const GEMINI_BASE = 'https://generativelanguage.googleapis.com';
 
 // 可选：简单鉴权，ENV 里填的 key，用户请求时放在 x-api-key header 里
 const AUTHORIZED_KEYS = (() => {
-  const keys = GEMINI_API_KEY || '';
+  const keys = (globalThis.GEMINI_API_KEY || '').trim();
   return keys ? keys.split(',').map(k => k.trim()).filter(Boolean) : [];
 })();
 
